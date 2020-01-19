@@ -1,0 +1,26 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Back du projet docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcohiro/dockerProjetCompose.git"
+  },
+  "keywords": [
+    "Docker",
+    "projet"
+  ],
+  "author": "Marc-Alain PETIT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcohiro/dockerProjetCompose/issues"
+  },
+  "homepage": "https://github.com/Marcohiro/dockerProjetCompose#readme",
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
