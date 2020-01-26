@@ -1,0 +1,32 @@
+version: "2.1"
+services:
+    frontend:
+        container_name: awesome_web
+        build:
+            context: ./front
+            dockerfile: Dockerfile
+        image: hiro/awesome_web
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./front:/usr/src/app
+    backend:
+        container_name: awesome_server
+        build:
+            context: ./back
+            dockerfile: Dockerfile
+        image: hiro/awesome_server
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./back:/usr/src/app
+    database:
+        container_name: awesome_database
+        build:
+            context: ./database
+            dockerfile: Dockerfile
+        image: hiro/awesome_database
+        ports:
+            - "27017:27019"
+        volumes:
+            - ./database/db.json
