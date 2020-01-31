@@ -14,7 +14,6 @@ RUN echo "deb http://$MONGO_REPO/apt/debian jessie/${MONGO_PACKAGE%-unstable}/$M
 RUN echo "/etc/apt/sources.list.d/${MONGO_PACKAGE%-unstable}.list"
 RUN apt-get update
 RUN apt-get install -y ${MONGO_PACKAGE}=$MONGO_VERSION
-VOLUME ["/data/db"]
 WORKDIR /data
 EXPOSE 27017
 CMD ["mongod", "--smallfiles"]
