@@ -22,7 +22,7 @@ services:
             dockerfile: Dockerfile
         image: hiro/awesome_server
         ports:
-            - "8080:8080"
+            - "8085:8085"
         restart: always
         links:
             - mongo

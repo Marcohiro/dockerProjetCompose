@@ -4,29 +4,31 @@ class DataReader extends Component {
   constructor(props){
     super(props);
     this.state = {
-    data: [],
+      users: [],
     }
   }
 
 componentDidMount() {
-  var str = "";
-  fetch('http://localhost:8080/get-data')
-  .then(results => {
-    const reader = results.body.getReader();
-    reader.read().then(({ done, value }) => {
-      if(done) console.log('reading done');
-      str = new TextDecoder("utf-8").decode(value);
-      console.log(str);
-    })
-    this.setState({data: str});
-    console.log("state", this.state.data);
-  })
+  fetch('http://localhost:8085/get-data')
+  .then(res => {
+      return res.json()
+   })
+  .then(users => { 
+      this.setState(Object.values(users));
+   });
 }
 
 render() {
+  console.log(this.state.users.length);
+  const toRender = this.state.users.map( user => {
+    <div>
+      <p>Id : {user.id}</p>
+    </div>
+  })
     return (
       <div>
-        {this.state.data}
+        <p>Affichage</p>
+        {toRender}
       </div>
     );
   }
